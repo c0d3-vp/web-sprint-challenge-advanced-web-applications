@@ -7,7 +7,6 @@ const initialColor = {
 };
 
 const ColorList = ({ colors, updateColors }) => {
-  console.log(colors);
   const [editing, setEditing] = useState(false);
   const [colorToEdit, setColorToEdit] = useState(initialColor);
 
@@ -16,12 +15,23 @@ const ColorList = ({ colors, updateColors }) => {
     setColorToEdit(color);
   };
 
-  const saveEdit = e => {
-    e.preventDefault();
-    // Make a put request to save your updated color
-    // think about where will you get the id from...
-    // where is is saved right now?
-  };
+  async function saveEdit(event) {
+    const colorId = colorToEdit.id;
+    event.preventDefault();
+    try {
+      const requestId = requester.createUniqueID();
+      await requester.put(
+        `http://localhost:5000/api/colors/${colorId}`,
+        requestId,
+        colorToEdit
+      );
+    } catch (error) {
+      console.log(error);
+      throw error;
+    } finally {
+      window.open("/", "_self");
+    }
+  }
 
   async function deleteColor(color) {
     const colorId = color.id;
