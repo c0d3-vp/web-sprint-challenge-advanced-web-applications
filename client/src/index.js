@@ -1,6 +1,26 @@
-import React, { useState } from "react";
+import React from "react";
 import ReactDOM from "react-dom";
-import App from "./App";
+import { Paper } from "@material-ui/core";
+import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
+import "fontsource-roboto";
 
-const rootElement = document.getElementById("root");
-ReactDOM.render(<App />, rootElement);
+import "./index.css";
+import App from "./App";
+import { store } from "./reducer";
+
+const darkTheme = createMuiTheme({
+  palette: {
+    type: "dark",
+  },
+});
+
+ReactDOM.render(
+  <React.StrictMode>
+      <ThemeProvider theme={darkTheme}>
+        <Paper style={{ height: "95vh" }}>
+          <App />
+        </Paper>
+      </ThemeProvider>
+  </React.StrictMode>,
+  document.getElementById("root")
+);
