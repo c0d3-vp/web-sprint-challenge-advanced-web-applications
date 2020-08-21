@@ -23,9 +23,21 @@ const ColorList = ({ colors, updateColors }) => {
     // where is is saved right now?
   };
 
-  const deleteColor = color => {
-    // make a delete request to delete this color
-  };
+  async function deleteColor(color) {
+    const colorId = color.id;
+
+    try {
+      const requestId = requester.createUniqueID();
+      await requester.delete(
+        `http://localhost:5000/api/colors/${colorId}`,
+        requestId
+      );
+      window.open("/", "_self");
+    } catch (error) {
+      console.log(error);
+      throw error;
+    }
+  }
 
   return (
     <div className="colors-wrap">
