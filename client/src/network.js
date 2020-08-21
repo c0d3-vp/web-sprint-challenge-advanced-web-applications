@@ -67,7 +67,7 @@ export function login(username, password, history) {
         localStorage.setItem("Authorization", JSON.stringify(headers));
         requester.setOptions({ headers: headers });
         dispatch({ type: LOGIN_SUCCESS });
-        window.open("/friends");
+        window.open("/");
       } catch (error) {
         console.log(error);
         dispatch({ type: LOGIN_FAILURE, error: error });
