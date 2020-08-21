@@ -5,7 +5,6 @@ import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 import "fontsource-roboto";
 import { Provider } from "react-redux";
 
-import "./index.css";
 import App from "./App";
 import { store } from "./reducer";
 
