@@ -102,19 +102,3 @@ test('Fetches data and renders the bubbles', async () => {
   expect(bubbles).toBeInTheDocument();
 
 });
-
-// 
-//   mockFetchShow.mockResolvedValueOnce(mockData);
-//   //render App
-//   const { getByText, getAllByText } = render(<App />);
-//   // query for dropdown
-//   await waitFor(() => {
-//     getByText(/select a season/i);
-//   });
-//   userEvent.click(getByText(/select a season/i));
-//   //make assertions
-//   //drop down shows season 1
-//   expect(getAllByText(/season /i)).toHaveLength(1);
-//   expect(mockFetchShow).toHaveBeenCalledTimes(2);
-// });
-
